@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morbilidade</title>
+    <style>
+        body {
+            font-family: Helvetica, sans-serif;
+            color: #000;
+            margin: 0;
+            padding: 0;
+            height: 100vh; 
+            background: url('{{ url_for('static', filename='fundo.png') }}') no-repeat center center; 
+            background-size: cover;
+        }
+
+        .button {
+            position: absolute;
+            left: 20px;
+        }
+        .button:nth-child(1) {
+            top: 290px;
+        }
+        .button:nth-child(2) {
+            top: 360px; 
+        }
+        .button:nth-child(3) {
+            top: 430px;
+        }
+        .button:nth-child(4) {
+            top: 500px;
+        }
+        .button:nth-child(5) {
+            top: 570px;
+        }
+
+        .button {
+            display: block;
+            width: 200px;
+            height: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #007BFF;
+            background-color: #fff;
+            border: none;
+            cursor: pointer;
+            line-height: 50px;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .table-container {
+            position: absolute;
+            top: 450px;
+            right: 200px;
+            width: 60%;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: #fff;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            text-align: center;
+            padding: 12px;
+            font-size: 18px;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <a href="{{ url_for('base_dados') }}" class="button">Base de dados</a>
+    <a href="{{ url_for('diagrama_classes') }}" class="button">Diagrama de classes</a>
+    <a href="{{ url_for('modelo_relacional') }}" class="button">Modelo relacional</a>
+    <a href="{{ url_for('navegar_tabelas') }}" class="button">Navegar pelas Tabelas</a>
+    <a href="{{ url_for('tipos_query') }}" class="button">Interrogações SQL</a>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                {% for header in headers %}
+                <th>{{ header }}</th>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for cell in data %}
+                <td>{{ cell }}</td>
+                {% endfor %}
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

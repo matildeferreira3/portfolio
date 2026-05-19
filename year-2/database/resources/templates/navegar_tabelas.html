@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navegar Tabelas</title>
+    <style>
+        body {
+            font-family: Helvetica, sans-serif;
+            color: #000;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+        .form-container {
+            margin-top: 20px;
+        }
+        label {
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+        select, input {
+            font-size: 1.2rem;
+            padding: 10px;
+            width: 200px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .result, .error {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+        }
+        .result {
+            border: 1px solid #28a745;
+            background-color: #d4edda;
+        }
+        .error {
+            border: 1px solid #dc3545;
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 30px;
+            width: 250px;
+            height: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            cursor: pointer;
+            line-height: 50px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Navegar pelas Tabelas</h1>
+
+    <div class="form-container">
+        <form action="{{ url_for('navegar_tabelas') }}" method="post">
+            <label for="tabela">Selecione a Tabela:</label>
+            <select name="tabela" id="tabela" required>
+                <option value="regioes" {% if tabela_selecionada == 'regioes' %}selected{% endif %}>Regiões</option>
+                <option value="instituicoes" {% if tabela_selecionada == 'instituicoes' %}selected{% endif %}>Instituições</option>
+                <option value="grupodiagnostico" {% if tabela_selecionada == 'grupodiagnostico' %}selected{% endif %}>Condições Médicas</option>
+                <option value="pacientes" {% if tabela_selecionada == 'pacientes' %}selected{% endif %}>Pacientes</option>
+            </select>
+
+            <label for="id">ID:</label>
+            <input type="number" name="id" id="id" value="{{ id_selecionado }}" required>
+
+            <button type="submit">Consultar</button>
+        </form>
+    </div>
+
+    {% if erro %}
+        <div class="error">
+            <strong>Erro:</strong> {{ erro }}
+        </div>
+    {% endif %}
+
+    {% if resultado %}
+        <div class="result">
+            <strong>Resultado:</strong> {{ resultado }}
+        </div>
+    {% endif %}
+
+    <div>
+        <a href="{{ url_for('index') }}" class="button">Voltar</a>
+    </div>
+
+</body>
+</html>

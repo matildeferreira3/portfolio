@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base de Dados</title>
+    <style>
+        body {
+            font-family: Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #000;
+            line-height: 1.6; 
+            text-align: center;
+            background-color: #f9f9f9; 
+        }
+        .container {
+            max-width: 800px; 
+            margin: 50px auto; 
+            padding: 20px;
+        }
+        .title {
+            font-size: 3rem; 
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2rem;
+            text-align: justify; 
+            margin-bottom: 30px;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #007BFF;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Sobre a base de dados</h1>
+        <p>A base de dados documenta e analisa informações sobre internamentos, episódios de ambulatório e óbitos em hospitais portugueses, permitindo a exploração detalhada de dados por períodos de reporte, categorias clínicas, faixas etárias, género e regiões de saúde.</p>
+        <p>O objetivo é guardar registos de forma completa e organizada que apoiem análises epidemiológicas, facilitando a troca de informações entre instituições e promovendo a interação entre diferentes sistemas de saúde.</p>
+        <a href="{{ url_for('index') }}" class="btn">Voltar</a>
+    </div>
+</body>
+</html>

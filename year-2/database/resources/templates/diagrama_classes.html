@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagrama de Classes</title>
+    <style>
+        body {
+            font-family: Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #000;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 1000px; 
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .diagram {
+            display: block;
+            max-width: 100%;
+            height: auto; 
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+            border-radius: 10px; 
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #007BFF;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Diagrama de Classes</h1>
+        <img src="{{ url_for('static', filename='diagrama_classes.png') }}" alt="Diagrama de Classes" class="diagram">
+        <a href="{{ url_for('index') }}" class="btn">Voltar</a>
+    </div>
+</body>
+</html>

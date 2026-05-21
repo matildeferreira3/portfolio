@@ -1,0 +1,22 @@
+name: genomica_tp1
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - python
+  - openjdk=11
+  - fastqc      # QC
+  - fastp       # QC
+  - spades      # Montagem Illumina
+  - flye        # Montagem Nanopore
+  - unicycler   # Montagem Híbrida
+  - bwa-mem2    # Polishing do Nanopore
+  - samtools    # Polishing do Nanopore
+  - pilon       # Polishing do Nanopore
+  - quast       # Avaliação
+  - busco       # Avaliação
+  - prokka      # Anotação
+  - pandas      # Ciar sumario.tsv
+  - shellcheck  # Validar scripts bash
+  - wget        # Para garantir reprodutibilidade total (incluir máquinas onde o wget não vem instalado por defeito)
+  - sra-tools   # Converter ficheiros para FASTQ
